@@ -2,7 +2,7 @@ import {Client} from 'pg'
 import client from '../../util/database';
 import { DataTypes, Model } from 'sequelize';
 
-const Students = client.define('Students', {
+const Files = client.define('Files', {
     // Model attributes are defined here
     id: {
       type: DataTypes.UUID,
@@ -12,25 +12,16 @@ const Students = client.define('Students', {
     name:{
         type:DataTypes.TEXT
     },
-    last_name:{
+    extension:{
         type:DataTypes.TEXT
     },
-    email:{
+    size:{
         type:DataTypes.TEXT
     },
-    phone:{
-        type:DataTypes.TEXT
-    },
-    profile_pic:{
-        type:DataTypes.UUID
-    },
-    interest:{
-        type:DataTypes.UUID
-    }
   }, {
     // Other model options go here
   });
 
-Students.sync({ alter: true });
+  Files.sync({ alter: true });
 
-export default Students;
+export default Files;
