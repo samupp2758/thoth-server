@@ -4,3 +4,13 @@ Add,
 Update,
 Remove,
 Show Student
+
+✅ Add,
+Update,
+Remove,
+Show Subject
+
+Add,
+Update,
+Remove,
+Show Subject
