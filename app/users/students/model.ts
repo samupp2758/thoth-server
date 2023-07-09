@@ -10,22 +10,28 @@ const Students = client.define('Students', {
       primaryKey:true
     },
     name:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     last_name:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     email:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     phone:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     profile_pic:{
-        type:DataTypes.UUID
+        type:DataTypes.UUID,
+        allowNull: false
     },
     interest:{
-        type:DataTypes.UUID
+        type:DataTypes.ARRAY(DataTypes.UUID),
+        defaultValue:[]
     }
   }, {
     // Other model options go here

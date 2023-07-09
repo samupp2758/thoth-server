@@ -2,6 +2,7 @@ import {Client} from 'pg'
 import client from '../../util/database';
 import { DataTypes, Model } from 'sequelize';
 
+
 const Files = client.define('Files', {
     // Model attributes are defined here
     id: {

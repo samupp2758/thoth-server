@@ -1,16 +1,20 @@
 //
-Init JWT
+
+✅ Add,
+✅ Update,
+✅ Remove,
+✅ Show Subject
+
+✅ Add,
+✅ Update,
+✅ Remove,
+✅ Get,
+✅ Show Files
+
 Add,
 Update,
 Remove,
 Show Student
 
-✅ Add,
-Update,
-Remove,
-Show Subject
 
-Add,
-Update,
-Remove,
-Show Subject
+Apply Auth to all routes

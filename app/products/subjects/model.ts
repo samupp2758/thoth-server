@@ -10,10 +10,21 @@ const Subjects = client.define('Subjects', {
       primaryKey:true
     },
     name:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        unique:true,
+        allowNull: false
     },
     definition:{
+        type:DataTypes.TEXT,
+        unique:true,
+        allowNull: false
+    },
+    imageBG:{
         type:DataTypes.TEXT
+    },
+    theme:{
+        type:DataTypes.TEXT,
+        defaultValue:"#000000"
     },
   }, {
     // Other model options go here
