@@ -159,12 +159,10 @@ const get = async (req: any, res: any) => {
         throw "Invalid id";
       });
 
-    var data = response?.dataValues;
-
-    if (data == undefined) {
-      throw "No file found";
-    }
-    res.json(data)
+      if(response == null){
+        throw "Invalid id";
+      }
+    res.json(response);
   } catch (error) {
     res.json({ error });
   }

@@ -7,7 +7,8 @@ const Students = client.define('Students', {
     id: {
       type: DataTypes.UUID,
       allowNull: false,
-      primaryKey:true
+      primaryKey:true,
+      unique:true
     },
     name:{
         type:DataTypes.TEXT,
@@ -19,11 +20,13 @@ const Students = client.define('Students', {
     },
     email:{
         type:DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        unique:true
     },
     phone:{
         type:DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        unique:true
     },
     profile_pic:{
         type:DataTypes.UUID,

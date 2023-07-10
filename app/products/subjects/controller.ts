@@ -31,7 +31,7 @@ const add = async (req: any, res: any) => {
         res.json({ response });
       });
   } catch (error) {
-    res.json({error});
+    res.json({ error });
   }
 };
 
@@ -66,13 +66,24 @@ const update = async (req: any, res: any) => {
         res.json({ response });
       });
   } catch (error) {
-    res.json({error});
+    res.json({ error });
   }
 };
 
 const get = async (req: any, res: any) => {
-  var response = await context_class.findByPk(req.params.id);
-  res.json(response);
+  try {
+    var response = await context_class
+      .findByPk(helpers.format(req.params.id, helpers.variables.regexp))
+      .catch((error) => {
+        throw "Invalid id";
+      });
+      if(response == null){
+        throw "Invalid id";
+      }
+    res.json(response);
+  } catch (error) {
+    res.json({ error });
+  }
 };
 
 const list = async (req: any, res: any) => {

@@ -11,10 +11,27 @@
 ✅ Get,
 ✅ Show Files
 
+✅ Add,
+✅ Update,
+✅ Remove,
+✅ Show Student
+
+Completed in 9th of July 2023
+
 Add,
 Update,
 Remove,
-Show Student
+Show fields
+
+Add,
+Update,
+Remove,
+Show SubFields
+
+Add,
+Update,
+Remove,
+Show Comments
 
 
 Apply Auth to all routes

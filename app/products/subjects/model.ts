@@ -20,7 +20,8 @@ const Subjects = client.define('Subjects', {
         allowNull: false
     },
     imageBG:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     theme:{
         type:DataTypes.TEXT,

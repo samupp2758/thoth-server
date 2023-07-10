@@ -19,11 +19,20 @@ const add = async (req: any, res: any) => {
     );
 
     /*
-    TODO:
+    Verify existence of interest*/
+    for (var i = 0; i < req.body.interest.length; i++) {
+      await context_class.findByPk(req.body.interest[i]).catch(() => {
+        throw "Interest Subject not found";
+      });
+    }
 
-    Verify existence of interest
-    Verify existence of profile pic in the system
-    */
+    /*
+    Verify existence of profile pic in the system*/
+    for (var a = 0; a < req.body.profile_pic.length; a++) {
+      await context_class.findByPk(req.body.profile_pic).catch(() => {
+        throw "Profile Picture not found";
+      });
+    }
 
     context_class
       .create(req.body)
@@ -55,14 +64,12 @@ const update = async (req: any, res: any) => {
     var keys = Object.keys(req.body);
     req.body = helpers.formatBody({}, req.body, helpers.variables.regexp);
 
-
     /*
     TODO:
 
     Verify existence of interest
     Verify existence of profile pic in the system
     */
-   
 
     await context_class
       .update(req.body, {
@@ -87,8 +94,20 @@ const update = async (req: any, res: any) => {
 };
 
 const get = async (req: any, res: any) => {
-  var response = await context_class.findByPk(req.params.id);
-  res.json(response);
+  try {
+    var response = await context_class
+      .findByPk(helpers.format(req.params.id, helpers.variables.regexp))
+      .catch((error) => {
+        throw "Invalid id";
+      });
+
+    if (response == null) {
+      throw "Invalid id";
+    }
+    res.json(response);
+  } catch (error) {
+    res.json({ error });
+  }
 };
 
 const list = async (req: any, res: any) => {
