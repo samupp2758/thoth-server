@@ -12,10 +12,15 @@ const Comments = client.define('Comments', {
     author:{
       type: DataTypes.UUID,
       allowNull: false,
+      onUpdate: "RESTRICT"
     },
     message: {
       type: DataTypes.TEXT
-    }
+    },
+    tot:{
+      type: DataTypes.UUID,
+      allowNull: false,
+    },
   }, {
     // Other model options go here
   });

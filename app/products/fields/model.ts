@@ -7,17 +7,21 @@ const Fields = client.define('Fields', {
     id: {
       type: DataTypes.UUID,
       allowNull: false,
-      primaryKey:true
+      primaryKey:true,
+      unique:true,
     },
     subject: {
       type: DataTypes.UUID,
       allowNull: false
     },
     name:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        unique:true,
     },
     definition:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        unique:true,
+        allowNull: false
     },
   }, {
     // Other model options go here

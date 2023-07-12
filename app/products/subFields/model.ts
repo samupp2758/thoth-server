@@ -9,15 +9,17 @@ const SubFields = client.define('SubFields', {
       allowNull: false,
       primaryKey:true
     },
-    subject: {
+    field: {
       type: DataTypes.UUID,
       allowNull: false
     },
     name:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
     definition:{
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
+        allowNull: false
     },
   }, {
     // Other model options go here
