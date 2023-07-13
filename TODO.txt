@@ -33,5 +33,11 @@ Update,
 Remove,
 Show Comments
 
+Add,
+Update,
+Remove,
+Show Tots
+
+
 
 Apply Auth to all routes

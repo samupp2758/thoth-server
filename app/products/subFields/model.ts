@@ -15,11 +15,13 @@ const SubFields = client.define('SubFields', {
     },
     name:{
         type:DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        unique:true
     },
     definition:{
         type:DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
+        unique:true
     },
   }, {
     // Other model options go here

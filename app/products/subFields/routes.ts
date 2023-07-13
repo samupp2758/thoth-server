@@ -4,7 +4,7 @@ import {auth} from '../../middlewares';
 const router = express.Router();
 
 router.get('/',controller.main)
-router.post('/add',controller.add)
+router.post('/add',[auth],controller.add)
 router.delete('/:id/delete',[auth],controller.del)
 router.put('/:id/update',[auth],controller.update)
 router.get('/:id/get',[auth],controller.get)

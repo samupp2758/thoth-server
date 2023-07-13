@@ -1,39 +1,30 @@
+import { Model, ModelCtor } from "sequelize";
 import Students from "../../users/students/model";
 import { Controller } from "../../util/generic.controller";
-import Fields from "./model";
-const context_class = Fields;
-const context = " Fields";
+import Tots from "../tots/model";
+import Comments from "./model";
+import helpers from "../../util/helpers";
+const context_class = Comments;
 const controller = new Controller(context_class);
 
-const doesAuthorExist = async (req: any, res: any, next: any) => {
-  if (typeof req.body.author == "undefined") {
-    next();
-  }
-  var student = await Students
-    .findByPk(req.body.author)
-    .catch((error) => {
-      res.json({ error });
-    });
-  if (student?.dataValues.length != 0) {
-   // next();
-  } else {
-    res.json({ error: "Author not found" });
-  }
-};
 
 const add = async (req: any, res: any) => {
   if (typeof req.body.author == "undefined") {
     res.json({ error: "Author cannot be null" });
     return 0;
   }
-  doesAuthorExist(req, res, () => {
-    controller.add(req, res);
+  helpers.doesItExist(Students,"author",req, res, () => {
+    helpers.doesItExist(Tots,"tot",req, res, () => {
+      controller.add(req, res);
+    });
   });
 };
 
 const update = async (req: any, res: any) => {
-  doesAuthorExist(req, res, () => {
-    controller.update(req, res);
+  helpers.doesItExist(Students,"author",req, res, () => {
+    helpers.doesItExist(Tots,"tot",req, res, () => {
+      controller.add(req, res);
+    });
   });
 };
 

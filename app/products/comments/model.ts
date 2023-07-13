@@ -20,6 +20,7 @@ const Comments = client.define('Comments', {
     tot:{
       type: DataTypes.UUID,
       allowNull: false,
+      onUpdate: "RESTRICT"
     },
   }, {
     // Other model options go here

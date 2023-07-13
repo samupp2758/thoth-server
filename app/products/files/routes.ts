@@ -4,7 +4,7 @@ import {auth} from '../../middlewares';
 const router = express.Router();
 
 router.get('/',controller.main)
-router.post('/add',controller.uploader,controller.add)
+router.post('/add',[auth],controller.uploader,controller.add)
 router.use((error:any, req: any, res: any, next: any) => {
     res.json({error:error.message})
   });
