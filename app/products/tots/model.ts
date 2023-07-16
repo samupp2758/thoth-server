@@ -1,6 +1,8 @@
 import { Client } from "pg";
 import client from "../../util/database";
 import { DataTypes, Model } from "sequelize";
+import SubFields from "../subFields/model";
+import Teachers from "../../users/teachers/model";
 
 const Tots = client.define(
   "Tots",
@@ -33,6 +35,16 @@ const Tots = client.define(
     // Other model options go here
   }
 );
+
+Tots.belongsTo(SubFields,{
+  foreignKey:"sub_field",
+  targetKey:"id"
+})
+
+Tots.belongsTo(Teachers,{
+  foreignKey:"author",
+  targetKey:"id"
+})
 
 Tots.sync({ alter: true });
 

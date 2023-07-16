@@ -1,6 +1,7 @@
 import {Client} from 'pg'
 import client from '../../util/database';
 import { DataTypes, Model } from 'sequelize';
+import Subjects from '../subjects/model';
 
 const Fields = client.define('Fields', {
     // Model attributes are defined here
@@ -25,6 +26,11 @@ const Fields = client.define('Fields', {
     },
   }, {
     // Other model options go here
+  });
+
+  Subjects.hasMany(Fields, {
+    foreignKey: "subject",
+    sourceKey:'id'
   });
 
   Fields.sync({ alter: true });

@@ -31,6 +31,6 @@ const Subjects = client.define('Subjects', {
     // Other model options go here
   });
 
-Subjects.sync({ alter: true });
+Subjects.sync({ force: true });
 
 export default Subjects;

@@ -1,6 +1,8 @@
 import { Client } from "pg";
 import client from "../../util/database";
 import { DataTypes, Model } from "sequelize";
+import Files from "../../products/files/model";
+import Subjects from "../../products/subjects/model";
 
 const Teachers = client.define(
   "Teachers",
@@ -50,6 +52,22 @@ const Teachers = client.define(
   }
 );
 
-Teachers.sync({ force: true });
+
+Files.hasOne(Teachers, {
+  foreignKey: "certificate",
+  sourceKey: "id",
+});
+
+Files.hasOne(Teachers, {
+  foreignKey: "profile_pic",
+  sourceKey: "id",
+});
+
+Subjects.hasMany(Teachers, {
+  foreignKey: "subject",
+  sourceKey: "id",
+});
+
+Teachers.sync({ alter: true });
 
 export default Teachers;
